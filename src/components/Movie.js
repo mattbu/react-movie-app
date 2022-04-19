@@ -1,13 +1,16 @@
 import PropTypes from "prop-types";
 import { Link, useParams } from "react-router-dom";
+import styles from "../css/Movie.module.css";
 
 function Movie({ id, title, poster, genres, summary }) {
   const params = useParams();
   return (
-    <div>
+    <div className={styles.card}>
       <img src={poster} alt={title} />
       <h1>
-        <Link to={`/movie/${id}`}>{title}</Link>
+        <Link to={`/movie/${id}`} className={styles.link}>
+          {title}
+        </Link>
       </h1>
       <ul>
         {genres.map((genre) => (

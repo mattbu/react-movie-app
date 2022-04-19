@@ -30,15 +30,14 @@ function Detail() {
         <div>
           <img src={movie.medium_cover_image} alt={movie.title} />
           <h1>{movie.title}</h1>
-          <button
-            onClick={() => {
-              navigate(
-                `https://www.youtube.com/watch?v=${movie.yt_trailer_code}`
-              );
-            }}
-          >
-            예고편 보기
-          </button>
+          {movie.yt_trailer_code ? (
+            <a
+              href={`https://www.youtube.com/watch?v=${movie.yt_trailer_code}`}
+              target="_blank"
+            >
+              예고편 보기
+            </a>
+          ) : null}
           <p>
             {movie.year} ::: Rating: {movie.rating}
           </p>
